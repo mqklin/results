@@ -9,5 +9,9 @@ router.get('/', function(req, res, next) {
   res.send('200 OK');
 });
 app.use('/', router);
-server.listen('8888');
+server.listen(8000,'127.0.0.1',function(){
+ server.close(function(){
+   server.listen(8888,'192.168.1.2')
+ })
+})
 console.log('listening');
