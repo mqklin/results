@@ -14,5 +14,15 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mqklin/results/issues"
+  },
+  "dependencies": {
+    "react": "~0.13.3",
+    "requirejs": "~2.1.20"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-babel": "~5.2.1",
+    "gulp-clean": "~0.3.1",
+    "gulp-watch": "~4.3.5"
   }
 }
