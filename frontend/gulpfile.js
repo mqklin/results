@@ -12,7 +12,8 @@ gulp.task("vendors", function(){
   return gulp
     .src([
       "node_modules/requirejs/require.js",
-      "node_modules/react/dist/react.js"
+      "node_modules/react/dist/react.js",
+      "node_modules/bootstrap/dist/css/bootstrap.css"
       ])
     .pipe(gulp.dest("build/vendors"));
 })

@@ -3,7 +3,7 @@ import React from 'react';
 class App extends React.Component {
   render() {
     return (
-      <h1>ПРИВЕТ</h1>
+      <button className="btn btn-alert">Буцтрап кнопка</button>
     );
   }
 }
