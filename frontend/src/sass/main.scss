@@ -1,0 +1,44 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__add-btn {
+  width: 10%;
+}
+
+.main__search-div {
+  margin-top: 1em;
+  width: 20%;
+  display: flex;
+  input[type="text"] {
+    width: 100%;
+  }
+  /*
+  button {
+    padding: 0;
+    background: url("../images/search-icon.png") #67EADD center no-repeat;
+    background-size: contain;
+    width: 2em;
+    height: 2em;
+    margin-left: 0.1em;
+  }
+  */
+}
+
+.main__tableData{
+  margin-top: 2em;
+  border-collapse: collapse;
+
+  th, tr, td {
+    border: 1px solid black;
+  }
+
+  th, td{
+    padding: 1em;
+  }
+
+
+}

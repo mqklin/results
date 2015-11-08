@@ -24,6 +24,10 @@
     "gulp-babel": "~5.2.1",
     "gulp-clean": "~0.3.1",
     "gulp-watch": "~4.3.5",
-    "gulp-sass": "~2.0.4"
+    "gulp-sass": "~2.0.4",
+    "gulp-util": "~3.0.7",
+    "browserify": "~12.0.1",
+    "vinyl-source-stream": "~1.1.0",
+    "babel-polyfill": "~6.0.16"
   }
 }
