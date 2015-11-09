@@ -1,23 +1,14 @@
-require('../vendors/polyfill.js');
-import React from '../vendors/react.js';
-//import {Main} from './components/Main.js';
-//import {Add} from './components/Add.js'
-import { Router, Route, Link } from 'react-router'
+require('babel-polyfill');
+import {Router} from './router.js';
+import Backbone from 'backbone';
 
-let Add = React.createClass({
-  render() {
-    return (
-      <h1>123</h1>
-    )
+class App {
+  constructor() {
+    new Router();
+    Backbone.history.start();
   }
-});
+}
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  let r =
-   <Router>
-    <Route path="/" component={Add}>
-      {/*<Route path="add" component={Add}/>*/}
-    </Route>
-  </Router>;
-  React.render(r, document.body);
+  new App();
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-import Controller from '../controllers/Controller';
 
 class ArticleRow extends React.Component {
   render() {
@@ -49,7 +48,7 @@ class ArticlesTable extends React.Component {
   }
 }
 
-export class Main extends React.Component {
+export default class extends React.Component {
 
   constructor(options){
     super(options);
@@ -64,9 +63,9 @@ export class Main extends React.Component {
   }
 
   async componentWillMount() {
-    let controller = new Controller();
-    let articles = await controller.getArticles();
-    this.setState({"articles": JSON.parse(articles)});
+    let articles = await this.props.controller.getArticles();
+    this.setState({"articles": articles});
+    this.props.controller.getArticles();
   }
 
   componentDidUpdate() {
@@ -78,17 +77,12 @@ export class Main extends React.Component {
     for (let text_container of tds){
       if (text_container.childNodes[0] && text_container.childNodes[0].tagName === "A") {
         continue;
-        //text_container = text_container.childNodes[0];
-      };
+      }
       text_container.innerHTML = text_container.innerHTML.replace(/<\/?mark>/g, '');
 
-      //let td_words = td.innerHTML.split(/[, ]/);
-      //for (let td_word of td_words) {
-        //if (~td_word.indexOf(searchValue)) {
-        if (searchValue &&~text_container.innerHTML.indexOf(searchValue)) {
-          text_container.innerHTML = text_container.innerHTML.replace(new RegExp(searchValue, 'g'), `<mark>${searchValue}</mark>`);
-        }
-      //}
+      if (searchValue &&~text_container.innerHTML.indexOf(searchValue)) {
+        text_container.innerHTML = text_container.innerHTML.replace(new RegExp(searchValue, 'g'), `<mark>${searchValue}</mark>`);
+      }
 
     }
   }
@@ -96,7 +90,7 @@ export class Main extends React.Component {
   render() {
     return (
       <div className="main">
-        <button className="main__add-btn">Добавить статью</button>
+        <a href="#add">Добавить статью</a>
         <div className="main__search-div">
           <input autoFocus type="text" placeholder="Поиск статьи" onChange={this.handleChange.bind(this)}/>
           {/*<button type="button" onClick={this.makeSearch}/>*/}

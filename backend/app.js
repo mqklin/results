@@ -2,7 +2,11 @@ var express = require('express')
     , app = express()
     , router = express.Router()
     , http = require('http')
-    , server = http.createServer(app);
+    , server = http.createServer(app)
+    , bodyParser = require('body-parser');
+
+router.use(bodyParser.json()); // support json encoded bodies
+router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 router.get('/', function(req, res, next) {
   console.log('req /');
@@ -53,8 +57,14 @@ var articles_example = [
 ];
 
 router.get('/articles', function(req, res, next) {
-  console.log('req /articles');
+  console.log('get /articles');
   res.send(articles_example);
+});
+
+router.post('/articles', function(req, res, next) {
+  console.log('post /articles', req.body);
+  articles_example.push(req.body);
+  res.send(req.body);
 });
 
 app.use('/', router);

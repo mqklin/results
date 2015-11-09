@@ -1,0 +1,31 @@
+.add {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.add__form {
+  margin-top: 2em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+.add__field {
+  display: flex;
+  align-items: center;
+  align-content: flex-end;
+  margin-bottom: 0.5em;
+  input {
+    width: 20em;
+  }
+
+}
+
+.add__field__label {
+  margin-right: 0.5em;
+}
+
+.add__field__helper {
+  width: 1em;
+  margin-left: 0.5em;
+}

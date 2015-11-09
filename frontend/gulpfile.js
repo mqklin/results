@@ -12,14 +12,6 @@ gulp.task("copy", function() {
   gulp.src(["src/images/**"]).pipe(gulp.dest("build/images"));
 });
 
-gulp.task("vendors", function() {
-  return gulp.src([
-      "node_modules/babel-polyfill/dist/polyfill.js",
-      "node_modules/react/dist/react.js"
-    ])
-    .pipe(gulp.dest("build/vendors"));
-});
-
 gulp.task("babel", function(done) {
   var b = babel({
     stage: 0,
@@ -51,9 +43,9 @@ gulp.task("clean", function() {
     .pipe(clean());
 });
 
-gulp.task("default", ["copy", "vendors", "babel"]);
+gulp.task("default", ["copy", "babel"]);
 
-gulp.task("watch", ["copy", "vendors", "babel", "sass"], function() {
+gulp.task("watch", ["copy", "babel", "sass"], function() {
 
   gulp.watch('index.html', ["copy"]);
   gulp.watch('src/**/*.js', ["babel"]);
